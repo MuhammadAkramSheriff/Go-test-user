@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/muhammadakr/go-test-user/proto" // Update this import path to match your project
+	"github.com/muhammadakr/go-test-user/proto"
 	"google.golang.org/grpc"
 )
 
-// Implement the UserAuthServiceServer interface
+
 type server struct {
 	proto.UnimplementedUserAuthServiceServer
 }
@@ -35,7 +35,7 @@ func (s *server) Login(ctx context.Context, req *proto.LoginRequest) (*proto.Log
 		return &proto.LoginResponse{
 			Success: true,
 			Message: "Login successful",
-			Token:   tokenString, // Add this field in your proto
+			Token:   tokenString,
 		}, nil
 	}
 	return &proto.LoginResponse{
